@@ -1,0 +1,175 @@
+/* ===========================
+    General
+   =========================== */
+
+body { }
+
+footer ul { margin-bottom: 20px; }
+
+/* ===========================
+    Variables
+   =========================== */
+
+@max-width-tablet: 767px;
+@min-width-desktop: 768px;
+
+@blue-darker: 		darken(@blue, 20%);
+@blue-dark: 		darken(@blue, 10%);
+@blue: 				#2E6DC2;
+@blue-light: 		lighten(@blue, 10%);
+@blue-lighter:  	lighten(@blue, 20%);
+
+@orange-darker: 	darken(@orange, 20%);
+@orange-dark: 		darken(@orange, 10%);
+@orange: 			#FE7D00;
+@orange-light: 		lighten(@orange, 10%);
+@orange-lighter: 	lighten(@orange, 20%);
+
+@white: 	#FFFFFF;
+
+@brand-primary: #428bca;
+@brand-success: #5cb85c;
+@brand-info:    #5bc0de;
+@brand-warning: #f0ad4e;
+@brand-danger:  #d9534f;
+
+/* ===========================
+    Helpers
+   =========================== */
+
+.transition(@property: all; @duration: .20s; @function: ease) {
+	-webkit-transition: @property @duration @function;
+	   -moz-transition: @property @duration @function;
+	    -ms-transition: @property @duration @function;
+	     -o-transition: @property @duration @function;
+	        transition: @property @duration @function;
+}
+
+.btn-style(@color, @bg-color, @border) {
+    border: #000;
+	border: @border;
+	color: @color;
+	background-color: @bg-color;
+}
+
+/* ===========================
+    Button
+   =========================== */
+
+
+/* login */
+.btn-login {
+	.transition();
+	.btn-style(@blue, transparent, 1px solid @blue);
+
+	&:hover  { .btn-style(@white, @blue, 1px solid rgba(0,0,0,.3)); }
+	&:focus  { .btn-style(@white, @blue, 1px solid rgba(0,0,0,.3)); }
+	&:active { .btn-style(@white, @blue, 1px solid rgba(0,0,0,.3)); }
+
+	&.disabled { color: #333; }
+}
+
+/* register */
+.btn-register {
+	.transition();
+	.btn-style(@white, @orange, 1px solid @orange);	
+
+	&:hover  { .btn-style(@white, @orange, 1px solid rgba(0, 0, 0, .3)); }
+	&:focus  { .btn-style(@white, @orange, 1px solid rgba(0, 0, 0, .3)); }
+	&:active { .btn-style(@white, @orange, 1px solid rgba(0, 0, 0, .3)); }
+
+	&.disabled { color: #fff; }
+}
+
+/* button outline */
+.btn-default.outline 	{ .btn-style(#333, transparent, #333); }
+.btn-primary.outline 	{ .btn-style(@brand-primary, transparent, @brand-primary); }
+.btn-success.outline 	{ .btn-style(@brand-success, transparent, @brand-success); }
+.btn-info.outline 		{ .btn-style(@brand-info, transparent, @brand-info); }
+.btn-warning.outline 	{ .btn-style(@brand-warning, transparent, @brand-warning); }
+.btn-danger.outline 	{ .btn-style(@brand-danger, transparent, @brand-danger); }
+
+/* inverted button outline */
+.btn-default.outline-inverse 	{ .btn-style(#fff, #333, #333); }
+.btn-primary.outline-inverse 	{ .btn-style(#fff, @brand-primary, @brand-primary); }
+.btn-success.outline-inverse 	{ .btn-style(#fff, @brand-success, @brand-success); }
+.btn-info.outline-inverse 		{ .btn-style(#fff, @brand-info, @brand-info); }
+.btn-warning.outline-inverse 	{ .btn-style(#fff, @brand-warning, @brand-warning); }
+.btn-danger.outline-inverse 	{ .btn-style(#fff, @brand-danger, @brand-danger); }
+
+/* ===========================
+    Navbar
+   =========================== */
+
+/* navbar button */
+.nav > li > a {
+	padding-left: 21px; 
+	padding-right: 21px;
+
+	&.btn 			{ padding-top: 6px; padding-bottom: 6px; }
+	&.btn-login 	{ .btn-login();   }
+	&.btn-register 	{ .btn-register(); }
+}
+
+/* desktop & large screen */
+@media (min-width: @min-width-desktop) {
+	.nav > li > a { padding-top: 28px; } /* top space for links */
+}
+
+/* mobile & tablet */
+@media (max-width: @max-width-tablet) {
+
+	/* menu dropdown */
+	.nav > li > a.btn  {
+		margin-right: 15px; padding-top: 10px; padding-bottom: 10px;
+	}
+}
+
+/* navbar */
+.navbar 		{ 
+	border-radius: 0;
+	border-top: none; 
+	border-right: none; 
+	border-left: none; 
+	margin-bottom: 0;
+}
+.navbar-index 	{ background: white; border-bottom: none; }
+.navbar-default { background: white; border-bottom-width: 2px; font-family: 'Open Sans', sans-serif;  font-size: 16px; }
+
+/* navbar header */
+.navbar-header {
+	.navbar-brand 	{ 
+		padding: 10px 10px; 
+		.navbar-logo { width: 200px; }
+	}
+	
+	.btn.pull-right {
+        /* btn `see apisense.com`on blog */
+        margin: 25px 15px 21px 0;
+    }
+}
+
+/* the button on mobile/table only */
+.navbar-toggle { margin-top: 25px; margin-bottom: 21px; }
+
+/* navbar left side */
+/* special page (e.g: blog, visualization) */
+.navbar-nav a .special {
+	margin-left: 0;
+	padding-top: 34px;
+	padding-bottom: 16px;
+	padding-left: 0;
+	font-size: 20px;
+	color: @blue;
+}
+
+/* navbar right side */
+.navbar-right .navbar-btn {
+	margin-top: 25px;
+	margin-bottom: 21px;
+	margin-left: 16px;
+	padding-right: 20px;
+	padding-left: 20px;
+}
+
+
