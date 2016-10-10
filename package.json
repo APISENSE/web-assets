@@ -3,7 +3,7 @@
   "description": "APISENSE Assets for common web resources",
   "version": "1.0.0",
   "author": "APISENSE",
-  "website": "http://www.apisense.com",
+  "website": "https://apisense.io",
   "copyright": "Copyright (C) 2014 APISENSE",
   "devDependencies": {
     "grunt": "~1.0.1",

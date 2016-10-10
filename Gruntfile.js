@@ -1,6 +1,6 @@
 /*!
  * APISENSE asset's Gruntfile
- * http://assets.apisense.com
+ * http://apisense.github.io/web-assets
  * Copyright (c) 2014 APISENSE.
  */
 
@@ -26,6 +26,7 @@ module.exports = function(grunt) {
     htmlDir: 'html',
     cssDir: 'stylesheets',
     imgDir: 'images',
+    serverLocation: 'apisense.github.io/web-assets',
 
     // Task configuration.
     // ==========
@@ -52,7 +53,7 @@ module.exports = function(grunt) {
           strictMath: true,
           sourceMap: true,
           outputSourceFiles: true,
-          sourceMapURL: 'http://assets.apisense.com/<%= cssDir %>/style.css.map',
+          sourceMapURL: 'https://<%= serverLocation %>/<%= cssDir %>/style.css.map',
           sourceMapFilename: '<%= compileDir %>/<%= cssDir %>/style.css.map'
         },
         files: {
@@ -109,7 +110,7 @@ module.exports = function(grunt) {
     // to those assets referenced with absolute paths (but not URLs)
     cdn: {
       options: {
-        cdn: '//assets.apisense.com/',
+        cdn: '//<%= serverLocation %>/',
         flatten: true
       },
       dist: {
